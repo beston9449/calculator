@@ -21,6 +21,12 @@ function digitDisplay(digit) {
 }
 
 decimal.addEventListener('click', () => {
+  if (waitingForSecondNumber) {
+    display.textContent = '0.';
+    waitingForSecondNumber = false;
+    return;
+  }
+
   if (!display.textContent.includes('.')) {
     digitDisplay(decimal.dataset.value);
   }
